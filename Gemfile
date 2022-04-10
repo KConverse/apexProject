@@ -1,13 +1,13 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.0"
+ruby "3.1.0"
 gem "rails", "~> 7.0.2", ">= 7.0.2.2"
 gem "sprockets-rails"
 gem "sass-rails"
 gem "jquery-rails"
 gem "turbolinks"
-gem "mysql2", "~> 0.5"
+gem 'pg', '~> 1.3', '>= 1.3.5'
 gem "puma", "~> 5.0"
 gem "importmap-rails"
 gem "turbo-rails"
@@ -24,6 +24,11 @@ end
 
 group :development do
   gem "web-console"
+  #gem "mysql2", "~> 0.5"
+end
+
+group :production do
+  gem 'pg', '~> 1.3', '>= 1.3.5'
 end
 
 group :test do

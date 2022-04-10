@@ -10,7 +10,7 @@
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: friendList
@@ -20,7 +20,7 @@ default: &default
 
 development:
   <<: *default
-  adapter: mysql2
+  adapter: postgresql
   database: friendList
   username: root
   password: resa884a
@@ -28,7 +28,7 @@ development:
 
 test:
   <<: *default
-  adapter: mysql2
+  adapter: postgresql
   database: friendList
   username: root
   password: resa884a
@@ -36,7 +36,7 @@ test:
 
 production:
   <<: *default
-  adapter: mysql2
+  adapter: postgresql
   database: friendList
   username: root
   password: resa884a
