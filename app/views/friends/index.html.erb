@@ -1,0 +1,36 @@
+<% if user_signed_in? %>
+
+  <table class="table table-bordered table-hover">
+    <thead class="thead">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Twitter</th>
+        <th>Birthday</th>
+        <th> </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @friends.each do |friend| %>
+        <% if friend.user == current_user %>
+        <tr>
+          <td><%= link_to friend.first_name + ' ' + friend.last_name, friend, class:"friendName" %></td>
+          <td><%= friend.email %></td>
+          <td><%= friend.phone_num %></td>
+          <td><%= friend.twitter %></td>
+          <td><%= friend.dob %></td>
+          <td><%= button_to 'Delete', friend, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm" %></td>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Friend', new_friend_path, class:"myBtn" %>
+<% else %>
+  <h1>Welcome to Apex Social!</h1>
+<% end %>

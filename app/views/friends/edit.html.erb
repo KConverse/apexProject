@@ -1,0 +1,10 @@
+<div class="myContainer">
+    <h1>Editing friend</h1>
+    <br/>
+    <%= render "form", friend: @friend %>
+
+    <br/>
+    <%= link_to "Show", @friend, class:"showBtn" %>
+    <%= button_to 'Delete', @friend, method: :delete, data: { confirm: 'Are you sure?' }, class:"showBtn", id:"delete" %>
+    <%= link_to "Back", friends_path, class:"showBtn" %>
+</div>
